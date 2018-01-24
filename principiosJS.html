@@ -1,0 +1,38 @@
+<script type="text/javascript">
+	
+	function Persona(nombre, edad)
+	{
+		// Propiedades
+		this.nombre = nombre;
+		this.edad = edad;
+
+		// Metodos
+		this.decirNombre = function decirNombre() {
+			return this.nombre;
+		}
+		// Cumplir()
+	}
+
+	var persona1 = new Persona("David", 36);
+	// console.log(persona1.nombre); // David
+
+	console.log( persona1.decirNombre() ); // David
+
+	var persona2 = new Persona("Goliat", 578);
+	// console.log( persona2.decirNombre() ); //Goliat
+
+	// Cambiar el nombre a Goliat
+	Persona.prototype.cambiarNombre = function(nombre) {
+		this.nombre = nombre;
+	};
+
+	persona2.cambiarNombre("Max Power");
+	console.log( persona2.decirNombre() ); //Max Power
+
+	persona1.cambiarNombre("Clark Kent");
+	console.log( persona1.decirNombre() ); //
+
+	Persona.prototype.nombre = "Nada";
+	console.log( persona1.decirNombre() ); //
+
+</script>
